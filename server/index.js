@@ -6,6 +6,7 @@ import userRoutes from "./routes/users.js";
 import questionRoutes from "./routes/Questions.js";
 import answerRoutes from "./routes/Answers.js";
 import connectDB from "./connectMongoDb.js";
+// import { mongoose } from "mongoose";
 
 dotenv.config();
 connectDB();
@@ -14,8 +15,7 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-
-
+// console.log(process.env.CONNECTION_URL)
 
 
 // app.use('/',(req, res) => {
@@ -31,7 +31,9 @@ app.use("/answer", answerRoutes);
 
 const PORT = process.env.PORT;
 
+// const DATABASE_URL = process.env.CONNECTION_URL
 
+// Mongoose.connect
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
